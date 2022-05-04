@@ -2,7 +2,7 @@
 // const dotenv = require('dotenv');
 // dotenv.config();
 
-// //var url = process.env.MONGO_URI
+// //const url = process.env.MONGO_URI
 
 // const conn = mongoose.connect("mongodb://localhost/testDatabase", {
 //   useNewUrlParser: true,
