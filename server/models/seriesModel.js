@@ -1,7 +1,5 @@
 const { Pool } = require('pg');
 
-
-
 //creates pool with above PG_URI
 const pool = new Pool({
   connectionString: PG_URI

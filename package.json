@@ -4,16 +4,13 @@
   "description": "Keep Track of Where You Are (in a web series)",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js",
-    "start": "node server.js",
-    "dev": "webpack-dev-server --mode development",
-    "dist": "webpack --mode production"
+    "start": "node server/server.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "concurrently \"NODE_ENV=development webpack serve --open\" \"nodemon server/server.js\""
   },
   "author": "Clay Sawyer",
   "license": "ISC",
   "dependencies": {
-    "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
@@ -37,6 +34,9 @@
     "webpack-dev-server": "^4.8.1"
   },
   "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16",
+    "sass-loader": "^12.6.0",
     "webpack": "^5.72.0"
   }
 }

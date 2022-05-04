@@ -1,20 +1,22 @@
 const path = require('path');
+const BUILD_DIR = path.resolve(__dirname, './build/');
+const APP_DIR = path.resolve(__dirname, './src');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const NODE_ENV = require('process.env.NODE_ENV');
+//const NODE_ENV = require('process.env');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/components/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
-  mode: production,//process.env.NODE_ENV,
+  mode: process.env.NODE_ENV,
   plugins: [new HtmlWebpackPlugin()],
   module: {
     rules: [
       {
         test: /\.jsx?/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
