@@ -41,11 +41,9 @@ module.exports = {
     },
     port: 8080,
     proxy: {
-      '/api': {
-        target: 'http://[::1]:3000',
-        secure: false,
-        pathRewrite: { '^/api': '' },
-        logLevel: 'debug'
+      "*": {
+        target: "http://[::1]:8081",
+        changeOrigin: true,
       }
     },
   },

@@ -10,4 +10,17 @@
 
 .wrapper fieldset {
   margin: 20px 0;
+  //text-align: left;
+}
+
+.shelf {
+  text-align: left;
+  display: flexbox;
+  background-color: blue;
+}
+
+form {
+
+  display: flexbox;
+  flex-direction: row;
 }
