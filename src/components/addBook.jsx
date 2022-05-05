@@ -19,55 +19,28 @@ class AddBook extends Component {
 
   handleInputChange = e => {
     this.setState({
-      [e.target.name]: e.target.value || this.state.value,
+      [e.target.name]: e.target.value,
     });
     e.preventDefault();
   };
 
   handleSubmit = e => {
     e.preventDefault();
-
     const { name, type, bookmark, summary, notes } = this.state;
-
-    const book = {
-      type,
-      name,
-      bookmark,
-      summary,
-      notes
-    };
-
-    fetch('http://localhost:3000/api/addBook', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ ...book }),
-    })
-      .then(response => response.json())
-      .then(this.setState({ state: this.state }))
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-
-  };
-
+    this.props.addRecord(name, type, bookmark, summary, notes)
+  }
   render() {
     return (
       <div className="shelf">
-        <h3 id="header">Add a Book</h3>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>
-              Name
+              Name:
               <input name="name" onChange={this.handleInputChange} />
             </label>
             <label>
-              Type
-              <select name="type" value={this.state.value} onChange={this.handleInputChange}>
+              Type:
+              <select name="type" value={this.state.type} onChange={this.handleInputChange}>
                 <option name="type" value="Novel">Novel</option>
                 <option value="Series">Series</option>
                 <option value="Webseries">Webseries</option>
@@ -75,15 +48,15 @@ class AddBook extends Component {
               </select>
             </label>
             <label>
-              Bookmark
+              Bookmark:
               <input name="bookmark" onChange={this.handleInputChange} />
             </label>
             <label>
-              Summary
+              Summary:
               <input name="summary" onChange={this.handleInputChange} />
             </label>
             <label>
-              Notes
+              Notes:
               <input name="notes" onChange={this.handleInputChange} />
             </label>
             <button type="submit">Create Record</button>

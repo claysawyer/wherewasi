@@ -20,7 +20,7 @@ router.post('/addBook', seriesController.addBook, (req, res) => {
 });
 
 // delete book
-router.post('/deleteBook', seriesController.delete, (req, res) => {
+router.delete('/deleteBook/:bookName', seriesController.delete, (req, res) => {
   res.status(200).json(req.body);
 });
 

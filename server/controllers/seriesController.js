@@ -12,7 +12,7 @@ seriesController.getBooks = (req, res, next) => {
     .catch(err => {
       const defaultErr = {
         log: 'seriesController.getBooks',
-        message: { err: 'super bummed on your error bro' }
+        message: { err: 'err in seriesController.getBooks' }
       };
       return next(defaultErr);
     });
@@ -30,13 +30,28 @@ seriesController.addBook = (req, res, next) => {
     .catch(err => {
       const defaultErr = {
         log: 'seriesController.addBook',
-        message: { err: 'super bummed on your error bro' }
+        message: { err: 'err in seriesController.addBook' }
       };
       return next(defaultErr);
     });
 };
 
 seriesController.delete = (req, res, next) => {
+  const bookName = req.params.bookName;
+  console.log("bookname", req.params)
+  const bookToBeRemoved = `DELETE FROM bookshelf WHERE bookshelf.name = '${bookName}'`;
+  db.query(bookToBeRemoved)
+    .then(data => {
+      res.locals.deletedBook = data.rows[0];
+      return next();
+    })
+    .catch(err => {
+      const defaultErr = {
+        log: 'seriesController.deleteBook',
+        message: { err: 'err in seriesController.deleteBook' + err }
+      };
+      return next(defaultErr);
+    });
 
 }
 

@@ -4,6 +4,13 @@
   color: lightblue
 }
 
+body {
+
+  color: white;
+  font: 1rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #C8C8C8;
+}
+
 .wrapper {
   padding: 5px 20px;
 }
@@ -19,14 +26,20 @@
   text-align: left;
 }
 
+input {
+  background-color: transparent;
+  border-bottom: 2px solid green;
+}
+
 form {
-  padding: 15px;
+  background-color: transparent;
   text-align: center;
   align-items: center;
 }
 
 fieldset {
-  padding: 15px;
+  border: none;
+  padding: 20px;
 }
 
 h3 {
@@ -62,4 +75,27 @@ input {
 
 label {
   margin: 20px;
+}
+
+.wrapper span {
+  font-size: 32px;
+}
+
+.shelf h3 {
+  font-size: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.neonText {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
 }
