@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import App from './app.jsx';
 import styles from '../scss/app.scss';
 
+
 class AddBook extends Component {
   constructor(props) {
     super(props);
@@ -26,13 +27,15 @@ class AddBook extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { name, type, bookmark, summary, notes } = this.state;
-    this.props.addRecord(name, type, bookmark, summary, notes)
+    const { name, type, summary, bookmark, notes } = this.state;
+    this.props.addRecord(name, type, summary, bookmark, notes)
+    document.getElementById("bookForm").reset();
   }
+
   render() {
     return (
       <div className="shelf">
-        <form onSubmit={this.handleSubmit}>
+        <form id="bookForm" onSubmit={this.handleSubmit}>
           <fieldset>
             <label>
               Name:
@@ -61,7 +64,6 @@ class AddBook extends Component {
             </label>
             <button type="submit">Create Record</button>
           </fieldset>
-
         </form>
       </div>
     );
