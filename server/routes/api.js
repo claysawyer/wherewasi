@@ -19,5 +19,9 @@ router.post('/addBook', seriesController.addBook, (req, res) => {
   res.status(200).json(req.body);
 });
 
+// delete book
+router.post('/deleteBook', seriesController.delete, (req, res) => {
+  res.status(200).json(req.body);
+});
 
 module.exports = router;

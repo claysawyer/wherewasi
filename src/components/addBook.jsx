@@ -11,6 +11,7 @@ class AddBook extends Component {
       bookmark: '',
       summary: '',
       notes: '',
+      value: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,8 +19,9 @@ class AddBook extends Component {
 
   handleInputChange = e => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value || this.state.value,
     });
+    e.preventDefault();
   };
 
   handleSubmit = e => {
@@ -60,27 +62,33 @@ class AddBook extends Component {
         <form onSubmit={this.handleSubmit}>
           <fieldset>
             <label>
-              <p>Name</p>
+              Name
               <input name="name" onChange={this.handleInputChange} />
             </label>
             <label>
-              <p>Type</p>
-              <input name="type" onChange={this.handleInputChange} />
+              Type
+              <select name="type" value={this.state.value} onChange={this.handleInputChange}>
+                <option name="type" value="Novel">Novel</option>
+                <option value="Series">Series</option>
+                <option value="Webseries">Webseries</option>
+                <option value="other">Other</option>
+              </select>
             </label>
             <label>
-              <p>Bookmark</p>
+              Bookmark
               <input name="bookmark" onChange={this.handleInputChange} />
             </label>
             <label>
-              <p>Summary</p>
+              Summary
               <input name="summary" onChange={this.handleInputChange} />
             </label>
             <label>
-              <p>Notes</p>
+              Notes
               <input name="notes" onChange={this.handleInputChange} />
             </label>
+            <button type="submit">Create Record</button>
           </fieldset>
-          <button type="submit">Submit</button>
+
         </form>
       </div>
     );
@@ -88,3 +96,4 @@ class AddBook extends Component {
 
 }
 export default AddBook;
+

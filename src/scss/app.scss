@@ -1,26 +1,65 @@
 * {
-  background-color: lightblue;
+  background-color: black;
   text-align: center;
+  color: lightblue
 }
 
 .wrapper {
   padding: 5px 20px;
-  border: 10px solid darkblue;
 }
 
 .wrapper fieldset {
   margin: 20px 0;
-  //text-align: left;
+  text-align: left;
 }
 
 .shelf {
+  margin: 10px;
+  padding: 10px;
   text-align: left;
-  display: flexbox;
-  background-color: blue;
 }
 
 form {
+  padding: 15px;
+  text-align: center;
+  align-items: center;
+}
 
-  display: flexbox;
-  flex-direction: row;
+fieldset {
+  padding: 15px;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  text-align: center;
+  border: 1px solid green;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td {
+  border: 1px solid green;
+  text-align: center;
+  height: 2em;
+}
+
+table td.shrink {
+  white-space: nowrap
+}
+
+table td.expand {
+  width: 99%
+}
+
+label,
+input {
+  display: inline;
+}
+
+label {
+  margin: 20px;
 }

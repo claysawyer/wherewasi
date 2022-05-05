@@ -19,9 +19,7 @@ seriesController.getBooks = (req, res, next) => {
 };
 
 seriesController.addBook = (req, res, next) => {
-  console.log(req.body)
   const { type, name, summary, bookmark, notes } = req.body;
-  console.log('req.body', req.body);
   const insert = 'INSERT INTO bookshelf (type, name, bookmark, summary, notes) VALUES ($1, $2, $3, $4, $5);';
   const values = [type, name, summary, bookmark, notes];
   db.query(insert, values)
@@ -38,5 +36,8 @@ seriesController.addBook = (req, res, next) => {
     });
 };
 
+seriesController.delete = (req, res, next) => {
+
+}
 
 module.exports = seriesController;

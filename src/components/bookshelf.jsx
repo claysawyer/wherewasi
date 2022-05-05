@@ -1,6 +1,9 @@
 import React, { Component, useState, useEffect } from 'react';
 import style from '../scss/app.scss';
 
+function deleteBook(props) {
+
+}
 
 function Bookshelf(props) {
   const [books, SetBooks] = useState([{}]);
@@ -16,29 +19,39 @@ function Bookshelf(props) {
       .catch(err => console.log(err))
   }, [])
 
-  const headers = ['name ', 'type ', 'bookmark ', 'Summary ', 'Notes ']
   const bookRow = [];
   books.forEach(book => {
     bookRow.push(
-      < div  >
-        <p>
-          {book.name}
-          {book.type}
-          {book.bookmark}
-          {book.summary}
-          {book.notes}
-        </p>
-      </div >
+      <tbody>
+        <tr>
+          <td>{book.name}</td>
+          <td>{book.type}</td>
+          <td>{book.bookmark}</td>
+          <td>{book.summary}</td>
+          <td>{book.notes}</td>
+          <td><button label='edit' onClick={() => { props.addMarketClick(document.querySelector('#input').value); }}>Edit</button></td>
+          <td><button label='delete' onClick={() => { props.addMarketClick(document.querySelector('#input').value); }}>Remove</button></td>
+        </tr>
+      </tbody>
     )
   });
 
   return (
     <div className="bookList">
-      {headers}
-      <ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Bookmark</th>
+            <th>Summary</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
         {bookRow}
-      </ul>
+      </table>
     </div>
   )
 }
+
 export default Bookshelf;
